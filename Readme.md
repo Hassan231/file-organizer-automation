@@ -1,3 +1,4 @@
+Version  v1.0---->Basic Organizer
 # File Organizer Automation
 
 A Python automation project that automatically organizes files into folders based on file types.
