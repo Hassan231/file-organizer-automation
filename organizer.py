@@ -9,10 +9,42 @@ source_folder = os.path.join(base_folder, "downloads")
 
 # Categories
 file_types = {
-    "Images": [".jpg", ".jpeg", ".png"],
-    "PDFs": [".pdf"],
-    "Music": [".mp3",".mp4"],
-    "Documents": [".txt", ".docx"]
+
+    "Images": [
+        ".jpg", ".jpeg", ".png",
+        ".gif", ".webp", ".svg"
+    ],
+
+    "PDFs": [
+        ".pdf"
+    ],
+
+    "Music": [
+        ".mp3", ".wav", ".aac"
+    ],
+
+    "Videos": [
+        ".mp4", ".mkv", ".avi",
+        ".mov"
+    ],
+
+    "Documents": [
+        ".txt", ".docx", ".pptx",
+        ".xlsx", ".csv"
+    ],
+
+    "Archives": [
+        ".zip", ".rar", ".7z"
+    ],
+
+    "Code": [
+        ".py", ".html", ".css",
+        ".js", ".json"
+    ],
+
+    "Applications": [
+        ".exe", ".msi"
+    ]
 }
 
 # Create folders
