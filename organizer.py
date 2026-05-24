@@ -1,0 +1,51 @@
+import os
+import shutil
+
+# Current project folder
+base_folder = os.path.dirname(os.path.abspath(__file__))
+
+# downloads folder inside project
+source_folder = os.path.join(base_folder, "downloads")
+
+# Categories
+file_types = {
+    "Images": [".jpg", ".jpeg", ".png"],
+    "PDFs": [".pdf"],
+    "Music": [".mp3",".mp4"],
+    "Documents": [".txt", ".docx"]
+}
+
+# Create folders
+for folder_name in file_types:
+
+    folder_path = os.path.join(source_folder, folder_name)
+
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+# Scan files
+for file_name in os.listdir(source_folder):
+
+    file_path = os.path.join(source_folder, file_name)
+
+    # Skip folders
+    if os.path.isdir(file_path):
+        continue
+
+    # Get extension
+    _, extension = os.path.splitext(file_name)
+
+    # Move files
+    for folder_name, extensions in file_types.items():
+
+        if extension.lower() in extensions:
+
+            destination = os.path.join(
+                source_folder,
+                folder_name,
+                file_name
+            )
+
+            shutil.move(file_path, destination)
+
+            print(f"Moved {file_name} to {folder_name}")
