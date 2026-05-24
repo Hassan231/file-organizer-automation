@@ -9,7 +9,7 @@ file_types = {
 
     "Images": [
         ".jpg", ".jpeg", ".png",
-        ".gif", ".webp",".jfif"
+        ".gif", ".webp",".jfif",".svg",".ico"
     ],
 
     "PDFs": [
@@ -92,6 +92,7 @@ def organize_files():
 
         # Get extension
         _, extension = os.path.splitext(file_name)
+        print(file_name, extension)
 
         # Match category
         for folder_name, extensions in file_types.items():
