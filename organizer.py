@@ -35,7 +35,7 @@ for file_name in os.listdir(source_folder):
     # Get extension
     _, extension = os.path.splitext(file_name)
 
-    # Move files
+    # Check categories
     for folder_name, extensions in file_types.items():
 
         if extension.lower() in extensions:
@@ -46,6 +46,27 @@ for file_name in os.listdir(source_folder):
                 file_name
             )
 
+            # DUPLICATE HANDLING
+            if os.path.exists(destination):
+
+                name, ext = os.path.splitext(file_name)
+
+                counter = 1
+
+                while os.path.exists(destination):
+
+                    new_name = f"{name}_{counter}{ext}"
+
+                    destination = os.path.join(
+                        source_folder,
+                        folder_name,
+                        new_name
+                    )
+
+                    counter += 1
+
             shutil.move(file_path, destination)
 
-            print(f"Moved {file_name} to {folder_name}")
+            print(f"Moved {file_name} -> {folder_name}")
+
+            break
